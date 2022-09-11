@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:libphonenumber_desktop/libphonenumber_desktop.dart';
+import 'package:libphonenumber_plugin/libphonenumber_plugin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -47,10 +47,10 @@ class _MyHomePageState extends State<MyHomePage> {
 
     _controller.addListener(() async {
       print(
-        "Is ${_controller.text} -> ${await LibPhoneNumberPlugin().isValidPhoneNumber(_controller.text, 'AE')}",
+        "Is ${_controller.text} -> ${await PhoneNumberUtil.isValidPhoneNumber(_controller.text, 'AE')}",
       );
       print(
-        "Normalized ${_controller.text} -> ${await LibPhoneNumberPlugin().normalizePhoneNumber(_controller.text, 'AE')}",
+        "Normalized ${_controller.text} -> ${await PhoneNumberUtil.normalizePhoneNumber(_controller.text, 'AE')}",
       );
     });
   }

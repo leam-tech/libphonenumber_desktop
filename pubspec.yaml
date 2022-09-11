@@ -24,8 +24,8 @@ flutter:
   plugin:
     platforms:
       linux:
-        pluginClass: LibPhoneNumberDesktopPlugin
+        pluginClass: LibPhoneNumberPlugin
       # macos:
       #   pluginClass: LibPhoneNumberDesktopPlugin
       windows:
-        pluginClass: LibPhoneNumberDesktopPluginCApi
+        pluginClass: LibPhoneNumberPlugin

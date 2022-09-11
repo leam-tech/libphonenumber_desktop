@@ -18,7 +18,7 @@ typedef struct {
 
 FLUTTER_PLUGIN_EXPORT GType libphonenumber_desktop_plugin_get_type();
 
-FLUTTER_PLUGIN_EXPORT void lib_phone_number_desktop_plugin_register_with_registrar(
+FLUTTER_PLUGIN_EXPORT void lib_phone_number_plugin_register_with_registrar(
     FlPluginRegistrar* registrar);
 
 G_END_DECLS

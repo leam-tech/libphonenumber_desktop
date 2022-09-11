@@ -6,12 +6,12 @@
 
 #include "generated_plugin_registrant.h"
 
-#include <libphonenumber_desktop/lib_phone_number_desktop_plugin_c_api.h>
+#include <libphonenumber_desktop/lib_phone_number_plugin.h>
 #include <permission_handler_windows/permission_handler_windows_plugin.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
-  LibPhoneNumberDesktopPluginCApiRegisterWithRegistrar(
-      registry->GetRegistrarForPlugin("LibPhoneNumberDesktopPluginCApi"));
+  LibPhoneNumberPluginRegisterWithRegistrar(
+      registry->GetRegistrarForPlugin("LibPhoneNumberPlugin"));
   PermissionHandlerWindowsPluginRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("PermissionHandlerWindowsPlugin"));
 }
