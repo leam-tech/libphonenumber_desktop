@@ -1,4 +1,4 @@
-#include "include/libphonenumber_desktop/libphonenumber_desktop_plugin.h"
+#include "include/libphonenumber_desktop/libphonenumber_desktop.h"
 
 #include <flutter_linux/flutter_linux.h>
 #include <gtk/gtk.h>
@@ -53,7 +53,7 @@ static void method_call_cb(FlMethodChannel* channel, FlMethodCall* method_call,
   libphonenumber_desktop_plugin_handle_method_call(plugin, method_call);
 }
 
-void lib_phone_number_plugin_register_with_registrar(FlPluginRegistrar* registrar){
+void libphonenumber_desktop_register_with_registrar(FlPluginRegistrar* registrar){
   LibphonenumberDesktopPlugin* plugin = LIBPHONENUMBER_DESKTOP_PLUGIN(
       g_object_new(libphonenumber_desktop_plugin_get_type(), nullptr));
 

@@ -1,7 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:libphonenumber_desktop/libphonenumber_desktop.dart';
 import 'package:libphonenumber_plugin/libphonenumber_plugin.dart';
 
 void main() {
+  if (Platform.isMacOS || Platform.isLinux || Platform.isWindows) {
+    LibphonenumberDesktop.registerWith();
+  }
   runApp(const MyApp());
 }
 
