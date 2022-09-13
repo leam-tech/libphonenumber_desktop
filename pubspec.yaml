@@ -1,7 +1,8 @@
 name: libphonenumber_desktop
-description: A new Flutter project.
-version: 0.0.1
-homepage: A nice dream
+description: Desktop implementation of libphonenumber_plugin
+version: 0.1.0
+homepage: https://github.com/leam-tech/libphonenumber_desktop
+repository: https://github.com/leam-tech/libphonenumber_desktop.git
 
 environment:
   sdk: ">=2.14.0 <3.0.0"
@@ -27,8 +28,8 @@ flutter:
       linux:
         pluginClass: LibphonenumberDesktop
         dartPluginClass: LibphonenumberDesktop
-      # macos:
-      #   pluginClass: LibPhoneNumberDesktopPlugin
+      macos:
+        dartPluginClass: LibphonenumberDesktop
       windows:
         pluginClass: LibphonenumberDesktop
         dartPluginClass: LibphonenumberDesktop

@@ -1,4 +1,4 @@
-group 'com.krtirtho.libphonenumber_desktop'
+group 'ae.leam.libphonenumber_desktop'
 version '1.0-SNAPSHOT'
 
 buildscript {

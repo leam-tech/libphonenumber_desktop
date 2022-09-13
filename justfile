@@ -7,10 +7,10 @@ gen:
         --c-output "$REPO_DIR/frameworks/rust_crate/rust_crate/bridge_generated.h"
 
 build-linux: 
-      export REPO_DIR="$PWD"; cd "$PWD/rust"; cargo build --release; cp "$REPO_DIR/rust/target/release/librust.so" "$REPO_DIR/linux/rust"
+      export REPO_DIR="$PWD"; cd "$PWD/rust"; cargo build --release; cp "$REPO_DIR/rust/target/release/librust.so" "$REPO_DIR/linux/"
 
 build-windows: 
-      export REPO_DIR="$PWD"; cd "$PWD/rust"; cargo build --release; cp "$REPO_DIR/rust/target/release/rust.dll" "$REPO_DIR/rust/target/release/rust.lib" "$REPO_DIR/windows/rust"
+      export REPO_DIR="$PWD"; cd "$PWD/rust"; cargo build --release; cp "$REPO_DIR/rust/target/release/rust.dll" "$REPO_DIR/windows"
 
 build-macos:
       export REPO_DIR="$PWD"; cd "$PWD/rust"; cargo build --release; cp "$REPO_DIR/rust/target/release/rust.dylib" "$REPO_DIR/macos/Libs"
