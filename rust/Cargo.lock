@@ -227,7 +227,7 @@ dependencies = [
 [[package]]
 name = "phonenumber"
 version = "0.3.1+8.12.9"
-source = "git+https://github.com/meh/rust-phonenumber#f936b0545fc8ad3ac195714de0c6ae8cd941723e"
+source = "git+https://github.com/meh/rust-phonenumber?rev=f936b0545fc8ad3ac195714de0c6ae8cd941723e#f936b0545fc8ad3ac195714de0c6ae8cd941723e"
 dependencies = [
  "bincode",
  "either",

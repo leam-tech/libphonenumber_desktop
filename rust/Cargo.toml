@@ -15,7 +15,7 @@ path = "src/main.rs"
 [dependencies]
 flutter_rust_bridge = "1"
 anyhow = "1"
-phonenumber = { git = "https://github.com/meh/rust-phonenumber" }
+phonenumber = { git = "https://github.com/meh/rust-phonenumber", rev = "f936b0545fc8ad3ac195714de0c6ae8cd941723e" }
 
 [profile.release]
 strip = true
