@@ -15,9 +15,10 @@ A new Flutter plugin project.
 
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
-  s.vendored_libraries = 'Libs/**/*'
   
   s.dependency 'FlutterMacOS'
+
+  s.vendored_libraries = 'librust.dylib'
 
   s.platform = :osx, '10.11'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
