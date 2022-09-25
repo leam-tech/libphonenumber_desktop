@@ -57,6 +57,26 @@ pub extern "C" fn wire_normalize_phone_number(
     )
 }
 
+#[no_mangle]
+pub extern "C" fn wire_get_region_info(
+    port_: i64,
+    phone_number: *mut wire_uint_8_list,
+    region: *mut wire_uint_8_list,
+) {
+    FLUTTER_RUST_BRIDGE_HANDLER.wrap(
+        WrapInfo {
+            debug_name: "get_region_info",
+            port: Some(port_),
+            mode: FfiCallMode::Normal,
+        },
+        move || {
+            let api_phone_number = phone_number.wire2api();
+            let api_region = region.wire2api();
+            move |task_callback| get_region_info(api_phone_number, api_region)
+        },
+    )
+}
+
 // Section: wire structs
 
 #[repr(C)]
@@ -135,6 +155,17 @@ impl<T> NewWithNullPtr for *mut T {
 }
 
 // Section: impl IntoDart
+
+impl support::IntoDart for RegionInfo {
+    fn into_dart(self) -> support::DartCObject {
+        vec![
+            self.country_code.into_dart(),
+            self.formatted_phone_number.into_dart(),
+        ]
+        .into_dart()
+    }
+}
+impl support::IntoDartExceptPrimitive for RegionInfo {}
 
 // Section: executor
 

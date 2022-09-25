@@ -22,4 +22,18 @@ class LibphonenumberDesktop extends LibPhoneNumberPlatform {
       region: isoCode,
     );
   }
+
+  @override
+  getRegionInfo(phoneNumber, isoCode) async {
+    assert(phoneNumber.isNotEmpty);
+    assert(isoCode.isNotEmpty);
+    final info = await api.getRegionInfo(
+      phoneNumber: phoneNumber,
+      region: isoCode,
+    );
+    return {
+      "countryCode": info.countryCode,
+      "formattedPhoneNumber": info.formattedPhoneNumber,
+    };
+  }
 }

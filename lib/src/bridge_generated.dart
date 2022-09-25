@@ -21,6 +21,21 @@ abstract class Rust {
       {required String phoneNumber, required String region, dynamic hint});
 
   FlutterRustBridgeTaskConstMeta get kNormalizePhoneNumberConstMeta;
+
+  Future<RegionInfo> getRegionInfo(
+      {required String phoneNumber, required String region, dynamic hint});
+
+  FlutterRustBridgeTaskConstMeta get kGetRegionInfoConstMeta;
+}
+
+class RegionInfo {
+  final int countryCode;
+  final String formattedPhoneNumber;
+
+  RegionInfo({
+    required this.countryCode,
+    required this.formattedPhoneNumber,
+  });
 }
 
 class RustImpl extends FlutterRustBridgeBase<RustWire> implements Rust {
@@ -66,6 +81,25 @@ class RustImpl extends FlutterRustBridgeBase<RustWire> implements Rust {
         argNames: ["phoneNumber", "region"],
       );
 
+  Future<RegionInfo> getRegionInfo(
+          {required String phoneNumber,
+          required String region,
+          dynamic hint}) =>
+      executeNormal(FlutterRustBridgeTask(
+        callFfi: (port_) => inner.wire_get_region_info(
+            port_, _api2wire_String(phoneNumber), _api2wire_String(region)),
+        parseSuccessData: _wire2api_region_info,
+        constMeta: kGetRegionInfoConstMeta,
+        argValues: [phoneNumber, region],
+        hint: hint,
+      ));
+
+  FlutterRustBridgeTaskConstMeta get kGetRegionInfoConstMeta =>
+      const FlutterRustBridgeTaskConstMeta(
+        debugName: "get_region_info",
+        argNames: ["phoneNumber", "region"],
+      );
+
   // Section: api2wire
   ffi.Pointer<wire_uint_8_list> _api2wire_String(String raw) {
     return _api2wire_uint_8_list(utf8.encoder.convert(raw));
@@ -92,6 +126,20 @@ String _wire2api_String(dynamic raw) {
 
 bool _wire2api_bool(dynamic raw) {
   return raw as bool;
+}
+
+RegionInfo _wire2api_region_info(dynamic raw) {
+  final arr = raw as List<dynamic>;
+  if (arr.length != 2)
+    throw Exception('unexpected arr length: expect 2 but see ${arr.length}');
+  return RegionInfo(
+    countryCode: _wire2api_u32(arr[0]),
+    formattedPhoneNumber: _wire2api_String(arr[1]),
+  );
+}
+
+int _wire2api_u32(dynamic raw) {
+  return raw as int;
 }
 
 int _wire2api_u8(dynamic raw) {
@@ -163,6 +211,26 @@ class RustWire implements FlutterRustBridgeWireBase {
       _wire_normalize_phone_numberPtr.asFunction<
           void Function(int, ffi.Pointer<wire_uint_8_list>,
               ffi.Pointer<wire_uint_8_list>)>();
+
+  void wire_get_region_info(
+    int port_,
+    ffi.Pointer<wire_uint_8_list> phone_number,
+    ffi.Pointer<wire_uint_8_list> region,
+  ) {
+    return _wire_get_region_info(
+      port_,
+      phone_number,
+      region,
+    );
+  }
+
+  late final _wire_get_region_infoPtr = _lookup<
+      ffi.NativeFunction<
+          ffi.Void Function(ffi.Int64, ffi.Pointer<wire_uint_8_list>,
+              ffi.Pointer<wire_uint_8_list>)>>('wire_get_region_info');
+  late final _wire_get_region_info = _wire_get_region_infoPtr.asFunction<
+      void Function(
+          int, ffi.Pointer<wire_uint_8_list>, ffi.Pointer<wire_uint_8_list>)>();
 
   ffi.Pointer<wire_uint_8_list> new_uint_8_list_0(
     int len,
