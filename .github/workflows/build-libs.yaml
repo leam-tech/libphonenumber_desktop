@@ -1,6 +1,11 @@
 name: Build Dynamic Libraries
 on:
   workflow_dispatch:
+    inputs:
+      debug-ssh:
+        description: "Debug SSH"
+        required: false
+        default: "false"
 
 jobs:
   linux:
@@ -36,6 +41,11 @@ jobs:
           cargo build --release
           cargo build --release --target=aarch64-apple-darwin
           lipo -create -output librust.dylib target/release/librust.dylib target/aarch64-apple-darwin/release/librust.dylib
+      - name: Setup tmate session
+        if: ${{ github.event.inputs.debug-ssh == 'true' }}
+        uses: mxschmitt/action-tmate@v3
+        with:
+          limit-access-to-actor: true
       - uses: actions/upload-artifact@v3
         with:
           name: RustLib

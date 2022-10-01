@@ -53,6 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
         "Normalized ${_controller.text} -> ${await PhoneNumberUtil.normalizePhoneNumber(_controller.text, 'AE')}",
       );
     });
+
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      print(
+        "Is 521231233 -> ${await PhoneNumberUtil.isValidPhoneNumber("521231233", "AE")}",
+      );
+    });
   }
 
   @override
