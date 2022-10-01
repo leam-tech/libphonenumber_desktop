@@ -1,24 +1,25 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint libphonenumber_desktop.podspec` to validate before publishing.
+# Run `pod lib lint metadata_god.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'libphonenumber_desktop'
+  s.name             = 'metadata_god'
   s.version          = '0.0.1'
-  s.summary          = 'A new Flutter plugin project.'
+  s.summary          = 'A new Flutter project.'
   s.description      = <<-DESC
-A new Flutter plugin project.
+A new Flutter project.
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }
   s.author           = { 'Your Company' => 'email@example.com' }
 
   s.source           = { :path => '.' }
+  s.source_files     = 'Classes/**/*'
   s.vendored_libraries = 'Libs/**/*'
   
   s.dependency 'FlutterMacOS'
 
-  s.platform = :osx, '10.13'
+  s.platform = :osx, '10.11'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
 end
