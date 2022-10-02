@@ -3,7 +3,7 @@
 # Run `pod lib lint metadata_god.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'metadata_god'
+  s.name             = 'libphonenumber_desktop'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter project.'
   s.description      = <<-DESC
