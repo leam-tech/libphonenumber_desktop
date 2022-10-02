@@ -1,6 +1,6 @@
 #
 # To learn more about a Podspec see http://guides.cocoapods.org/syntax/podspec.html.
-# Run `pod lib lint metadata_god.podspec` to validate before publishing.
+# Run `pod lib lint libphonenumber_desktop.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
   s.name             = 'libphonenumber_desktop'
@@ -16,7 +16,7 @@ A new Flutter project.
   s.source           = { :path => '.' }
   s.source_files     = 'Classes/**/*'
   s.vendored_libraries = 'Libs/**/*'
-  
+
   s.dependency 'FlutterMacOS'
 
   s.platform = :osx, '10.11'
