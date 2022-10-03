@@ -2,6 +2,10 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+typedef int64_t DartPort;
+
+typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
+
 typedef struct wire_uint_8_list {
   uint8_t *ptr;
   int32_t len;
@@ -13,9 +17,7 @@ typedef struct WireSyncReturnStruct {
   bool success;
 } WireSyncReturnStruct;
 
-typedef int64_t DartPort;
-
-typedef bool (*DartPostCObjectFnType)(DartPort port_id, void *message);
+void store_dart_post_cobject(DartPostCObjectFnType ptr);
 
 void wire_is_valid_number(int64_t port_,
                           struct wire_uint_8_list *phone_number,
@@ -32,8 +34,6 @@ void wire_get_region_info(int64_t port_,
 struct wire_uint_8_list *new_uint_8_list_0(int32_t len);
 
 void free_WireSyncReturnStruct(struct WireSyncReturnStruct val);
-
-void store_dart_post_cobject(DartPostCObjectFnType ptr);
 
 static int64_t dummy_method_to_enforce_bundling(void) {
     int64_t dummy_var = 0;
