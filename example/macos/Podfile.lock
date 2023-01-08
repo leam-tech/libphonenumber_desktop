@@ -15,7 +15,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
-  libphonenumber_desktop: f3a3e43a1a527fbf046f39de3c136ca44a6a90c5
+  libphonenumber_desktop: 1e4107ca42d7aaa39f01dac4c0bb5563d6ee0e2a
 
 PODFILE CHECKSUM: 6eac6b3292e5142cfc23bdeb71848a40ec51c14c
 
