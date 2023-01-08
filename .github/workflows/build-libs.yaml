@@ -37,7 +37,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           export FRAMEWORK="LibphonenumberDesktop.xcframework"
-          export LIBNAME=libphonenumber_desktop.a
+          export LIBNAME="librust.a"
           export MAC_LIPO=mac-lipo/$LIBNAME
           rustup target add aarch64-apple-darwin
           cd rust
