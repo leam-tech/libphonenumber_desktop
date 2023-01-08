@@ -46,7 +46,7 @@ jobs:
           lipo -create -output $MAC_LIPO target/aarch64-apple-darwin/release/$LIBNAME target/x86_64-apple-darwin/release/$LIBNAME
           xcodebuild -create-xcframework -library $MAC_LIPO -output $FRAMEWORK
       - name: Setup tmate session
-        if: ${{ github.event.inputs.debug-ssh == 'true' }}
+        if: ${{ failure() || github.event.inputs.debug-ssh == 'true' }}
         uses: mxschmitt/action-tmate@v3
         with:
           limit-access-to-actor: true
