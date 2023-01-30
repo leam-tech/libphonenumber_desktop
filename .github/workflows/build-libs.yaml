@@ -30,29 +30,3 @@ jobs:
           name: RustLib
           path: |
             rust/target/release/rust.dll
-
-  macos:
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-      - run: |
-          export FRAMEWORK="LibphonenumberDesktop.xcframework"
-          export LIBNAME="librust.a"
-          export MAC_LIPO=mac-lipo/$LIBNAME
-          rustup target add aarch64-apple-darwin
-          cd rust
-          cargo build --release --target=x86_64-apple-darwin
-          cargo build --release --target=aarch64-apple-darwin
-          mkdir mac-lipo
-          lipo -create -output $MAC_LIPO target/aarch64-apple-darwin/release/$LIBNAME target/x86_64-apple-darwin/release/$LIBNAME
-          xcodebuild -create-xcframework -library $MAC_LIPO -output $FRAMEWORK
-      - name: Setup tmate session
-        if: ${{ failure() || github.event.inputs.debug-ssh == 'true' }}
-        uses: mxschmitt/action-tmate@v3
-        with:
-          limit-access-to-actor: true
-      - uses: actions/upload-artifact@v3
-        with:
-          name: RustLib
-          path: |
-            rust/LibphonenumberDesktop.xcframework

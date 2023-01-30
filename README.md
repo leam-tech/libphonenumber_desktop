@@ -19,22 +19,6 @@ dependencies:
       url: https://github.com/leam-tech/libphonenumber_desktop.git
 ```
 
-In `main.dart`
-
-```dart
-import 'package:libphonenumber_desktop/libphonenumber_desktop.dart';
-import 'package:libphonenumber_plugin/libphonenumber_plugin.dart';
-
-void main() {
-  if(!kIsWeb){
-    if (Platform.isMacOS || Platform.isLinux || Platform.isWindows) {
-      LibphonenumberDesktop.registerWith();
-    }
-  }
-  runApp(const MyApp());
-}
-```
-
 #### Validate number with `isValidPhoneNumber`
 
 ```dart

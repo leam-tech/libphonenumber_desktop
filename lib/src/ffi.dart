@@ -11,8 +11,8 @@ DynamicLibrary platformSpecificDynamicLib() {
       return DynamicLibrary.open('lib$base.so');
     case 'android':
       return DynamicLibrary.open('lib$base.so');
-    case 'macos':
-      return DynamicLibrary.executable();
+    // case 'macos':
+    //   return DynamicLibrary.executable();
     case 'ios':
       return DynamicLibrary.process();
     case 'windows':

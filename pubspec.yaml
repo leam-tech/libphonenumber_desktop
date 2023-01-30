@@ -28,9 +28,6 @@ flutter:
       linux:
         pluginClass: LibphonenumberDesktop
         dartPluginClass: LibphonenumberDesktop
-      macos:
-        pluginClass: LibphonenumberDesktop
-        dartPluginClass: LibphonenumberDesktop
       windows:
         pluginClass: LibphonenumberDesktop
         dartPluginClass: LibphonenumberDesktop
